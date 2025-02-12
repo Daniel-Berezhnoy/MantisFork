@@ -254,8 +254,8 @@ open class CropViewController: UIViewController {
     }    
     
     private func setFixedRatio(_ ratio: Double, zoom: Bool = true) {
-//        cropToolbar.handleFixedRatioSetted(ratio: ratio)
-        cropView.setFixedRatio(ratio, zoom: zoom, presetFixedRatioType: config.presetFixedRatioType)
+        cropToolbar.handleFixedRatioSetted(ratio: ratio)
+//        cropView.setFixedRatio(ratio, zoom: zoom, presetFixedRatioType: config.presetFixedRatioType)
     }
     
     private func setFreeRatio() {
