@@ -873,12 +873,18 @@ extension CropView: CropViewProtocol {
         // 4) Assign it directly to the viewModel, which drives the crop box
         viewModel.cropBoxFrame = default16x7Frame
         
+        // Didn't help bring the image back
 //        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
 //        cropWorkbenchView.zoomScaleToBound(animated: false)
         
+        let contentRect = getContentBounds()
+        adjustUIForNewCrop(contentRect: contentRect, animation: false, zoom: true) {
+            // Completion block if needed
+        }
         
-        setViewDefaultProperties()
-        setForceFixedRatio(by: presetFixedRatioType)
+        
+//        setViewDefaultProperties()
+//        setForceFixedRatio(by: presetFixedRatioType)
     }
     
     func getRatioType(byImageIsOriginalHorizontal isHorizontal: Bool) -> RatioType {
