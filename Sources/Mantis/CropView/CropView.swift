@@ -899,10 +899,10 @@ extension CropView: CropViewProtocol {
         if viewModel.fixedImageRatio != CGFloat(ratio) {
             viewModel.fixedImageRatio = CGFloat(ratio)
             
-//            setForceFixedRatio(by: presetFixedRatioType)
+            setForceFixedRatio(by: presetFixedRatioType)
             
             if forceFixedRatio {
-                setFixedRatioCropBox(zoom: zoom)
+//                setFixedRatioCropBox(zoom: zoom)
             } else {
                 UIView.animate(withDuration: 0.5) {
                     self.setFixedRatioCropBox(zoom: zoom)
