@@ -116,14 +116,14 @@ open class CropViewController: UIViewController {
         cropToolbar.delegate = self
         
         switch config.presetFixedRatioType {
-                
+            
+            // MARK: Removing this seems to unlock the ratio completely
             case .alwaysUsingOnePresetFixedRatio(let ratio):
-//                config.cropToolbarConfig.includeFixedRatiosSettingButton = false
-//                
-//                if case .none = config.cropViewConfig.presetTransformationType {
-//                    setFixedRatio(ratio)
-//                }
-                break
+                config.cropToolbarConfig.includeFixedRatiosSettingButton = false
+                
+                if case .none = config.cropViewConfig.presetTransformationType {
+                    setFixedRatio(ratio)
+                }
                 
             case .canUseMultiplePresetFixedRatio(let defaultRatio):
                 if defaultRatio > 0 {
@@ -190,6 +190,7 @@ open class CropViewController: UIViewController {
     
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         if initialLayout == false {
             initialLayout = true
             view.layoutIfNeeded()
@@ -197,6 +198,7 @@ open class CropViewController: UIViewController {
             
             cropView.processPresetTransformation { [weak self] transformation in
                 guard let self = self else { return }
+                
                 if case .alwaysUsingOnePresetFixedRatio(let ratio) = self.config.presetFixedRatioType {
                     self.cropToolbar.handleFixedRatioSetted(ratio: ratio)
                     self.cropView.handlePresetFixedRatio(ratio, transformation: transformation)
