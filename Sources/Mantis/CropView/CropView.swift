@@ -436,6 +436,7 @@ extension CropView {
         adjustWorkbenchView(by: totalRadians)
     }
     
+#warning("THIS IS THE kEY!")
 //    private func getInitialCropBoxRect() -> CGRect {
 //        guard image.size.width > 0 && image.size.height > 0 else {
 //            return .zero
@@ -871,6 +872,9 @@ extension CropView: CropViewProtocol {
 
         // 4) Assign it directly to the viewModel, which drives the crop box
         viewModel.cropBoxFrame = default16x7Frame
+        
+        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
+        cropWorkbenchView.zoomScaleToBound(animated: false)
         
         
 //        setViewDefaultProperties()
