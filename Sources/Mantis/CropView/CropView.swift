@@ -861,21 +861,23 @@ extension CropView: CropViewProtocol {
         
         
         
-        // 1) We want freeform, so turn off aspect ratio locking
-        aspectRatioLockEnabled = false
-
-        // 2) Figure out how big we want the 16:7 box
-        let boundingRect = getContentBounds()
-        let boundingWidth = boundingRect.width * 0.8  // e.g. 80% of the available width
-        let boundingHeight = boundingWidth / (16.0 / 7.0)
-
-        // 3) Center that box in the available space
-        let x = boundingRect.midX - boundingWidth / 2
-        let y = boundingRect.midY - boundingHeight / 2
-        let default16x7Frame = CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
-
-        // 4) Assign it directly to the viewModel, which drives the crop box
-        viewModel.cropBoxFrame = default16x7Frame
+//        // 1) We want freeform, so turn off aspect ratio locking
+//        aspectRatioLockEnabled = false
+//
+//        // 2) Figure out how big we want the 16:7 box
+//        let boundingRect = getContentBounds()
+//        let boundingWidth = boundingRect.width * 0.8  // e.g. 80% of the available width
+//        let boundingHeight = boundingWidth / (16.0 / 7.0)
+//
+//        // 3) Center that box in the available space
+//        let x = boundingRect.midX - boundingWidth / 2
+//        let y = boundingRect.midY - boundingHeight / 2
+//        let default16x7Frame = CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+//
+//        // 4) Assign it directly to the viewModel, which drives the crop box
+//        viewModel.cropBoxFrame = default16x7Frame
+        
+        
         
         // Didn't help bring the image back
 //        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
