@@ -122,12 +122,12 @@ open class CropViewController: UIViewController {
                 
                 if case .none = config.cropViewConfig.presetTransformationType {
                     // MARK: Removing this seems to unlock the ratio completely
-                    setFixedRatio(ratio)
+//                    setFixedRatio(ratio)
                 }
                 
             case .canUseMultiplePresetFixedRatio(let defaultRatio):
                 if defaultRatio > 0 {
-                    setFixedRatio(defaultRatio)
+//                    setFixedRatio(defaultRatio)
                     cropView.aspectRatioLockEnabled = true // This one has no effect
                     config.cropToolbarConfig.presetRatiosButtonSelected = true
                 }
@@ -304,7 +304,7 @@ open class CropViewController: UIViewController {
         if fixedRatioManager.ratios.count == 1 {
             let ratioItem = fixedRatioManager.ratios[0]
             let ratioValue = (fixedRatioManager.type == .horizontal) ? ratioItem.ratioH : ratioItem.ratioV
-            setFixedRatio(ratioValue)
+//            setFixedRatio(ratioValue)
             return
         }
         
@@ -571,7 +571,7 @@ extension CropViewController: CropToolbarDelegate {
         if config.enableUndoRedo {
             previousCropState = cropView.makeCropState()
         }
-        setFixedRatio(ratio)
+//        setFixedRatio(ratio)
     }
     
     public func didSelectFreeRatio(_ cropToolbar: CropToolbarProtocol? = nil) {
