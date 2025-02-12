@@ -895,7 +895,7 @@ extension CropView: CropViewProtocol {
     func setFixedRatio(_ ratio: Double, zoom: Bool = true, presetFixedRatioType: PresetFixedRatioType) {
         
         // MARK: This unlocks it
-        aspectRatioLockEnabled = true
+//        aspectRatioLockEnabled = true
         
         if viewModel.fixedImageRatio != CGFloat(ratio) {
             viewModel.fixedImageRatio = CGFloat(ratio)
