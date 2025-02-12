@@ -890,9 +890,10 @@ extension CropView: CropViewProtocol {
         }
     }
     
+    #warning("Here")
     func setFixedRatio(_ ratio: Double, zoom: Bool = true, presetFixedRatioType: PresetFixedRatioType) {
        
-        aspectRatioLockEnabled = true
+//        aspectRatioLockEnabled = true
         
         if viewModel.fixedImageRatio != CGFloat(ratio) {
             viewModel.fixedImageRatio = CGFloat(ratio)
@@ -1241,6 +1242,4 @@ extension CropView: CropViewProtocol {
     }
 }
 
-extension UIActivityIndicatorView: ActivityIndicatorProtocol {
-    
-}
+extension UIActivityIndicatorView: ActivityIndicatorProtocol {}
