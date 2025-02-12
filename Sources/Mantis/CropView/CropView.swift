@@ -404,7 +404,7 @@ final class CropView: UIView {
 // MARK: - Adjust UI
 extension CropView {
     func resetComponents() {
-//        cropMaskViewManager.setup(in: self, cropRatio: CGFloat(getImageHorizontalToVerticalRatio()))
+        cropMaskViewManager.setup(in: self, cropRatio: CGFloat(getImageHorizontalToVerticalRatio()))
         
         viewModel.resetCropFrame(by: getInitialCropBoxRect())
         cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
@@ -436,21 +436,35 @@ extension CropView {
         adjustWorkbenchView(by: totalRadians)
     }
     
+//    private func getInitialCropBoxRect() -> CGRect {
+//        guard image.size.width > 0 && image.size.height > 0 else {
+//            return .zero
+//        }
+//        
+//        let outsideRect = getContentBounds()
+//        let insideRect: CGRect
+//        
+//        if viewModel.isUpOrUpsideDown() {
+//            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+//        } else {
+//            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
+//        }
+//        
+//        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
+//    }
+    
     private func getInitialCropBoxRect() -> CGRect {
-        guard image.size.width > 0 && image.size.height > 0 else {
-            return .zero
-        }
+        // Grab the bounding area
+        let boundingRect = getContentBounds()
         
-        let outsideRect = getContentBounds()
-        let insideRect: CGRect
+        // 80% of the width for demonstration
+        let boundingWidth = boundingRect.width * 0.8
+        let boundingHeight = boundingWidth / (16.0 / 7.0)
         
-        if viewModel.isUpOrUpsideDown() {
-            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-        } else {
-            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
-        }
+        let x = boundingRect.midX - boundingWidth / 2
+        let y = boundingRect.midY - boundingHeight / 2
         
-        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
+        return CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
     }
     
     func zoomIn() {
