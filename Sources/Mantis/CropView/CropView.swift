@@ -437,36 +437,36 @@ extension CropView {
     }
     
 #warning("THIS IS THE KEY!")
-//    private func getInitialCropBoxRect() -> CGRect {
-//        guard image.size.width > 0 && image.size.height > 0 else {
-//            return .zero
-//        }
-//        
-//        let outsideRect = getContentBounds()
-//        let insideRect: CGRect
-//        
-//        if viewModel.isUpOrUpsideDown() {
-//            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-//        } else {
-//            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
-//        }
-//        
-//        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
-//    }
-    
     private func getInitialCropBoxRect() -> CGRect {
-        // Grab the bounding area
-        let boundingRect = getContentBounds()
+        guard image.size.width > 0 && image.size.height > 0 else {
+            return .zero
+        }
         
-        // 80% of the width for demonstration
-        let boundingWidth = boundingRect.width * 0.8
-        let boundingHeight = boundingWidth / (16.0 / 7.0)
+        let outsideRect = getContentBounds()
+        let insideRect: CGRect
         
-        let x = boundingRect.midX - boundingWidth / 2
-        let y = boundingRect.midY - boundingHeight / 2
+        if viewModel.isUpOrUpsideDown() {
+            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        } else {
+            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
+        }
         
-        return CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
     }
+    
+//    private func getInitialCropBoxRect() -> CGRect {
+//        // Grab the bounding area
+//        let boundingRect = getContentBounds()
+//        
+//        // 80% of the width for demonstration
+//        let boundingWidth = boundingRect.width * 0.8
+//        let boundingHeight = boundingWidth / (16.0 / 7.0)
+//        
+//        let x = boundingRect.midX - boundingWidth / 2
+//        let y = boundingRect.midY - boundingHeight / 2
+//        
+//        return CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+//    }
     
     func zoomIn() {
         cropWorkbenchView.zoomIn(by: cropViewConfig.keyboardZoomScaleFactor)
@@ -538,7 +538,7 @@ extension CropView {
     
     func adjustUIForNewCrop(contentRect: CGRect,
                             animation: Bool = true,
-                            zoom: Bool = false,
+                            zoom: Bool = true,
                             completion: @escaping () -> Void) {
         
         guard viewModel.cropBoxFrame.size.width > 0 && viewModel.cropBoxFrame.size.height > 0 else {
@@ -879,7 +879,7 @@ extension CropView: CropViewProtocol {
         
         // Didn't help bring the image back
         let contentRect = getContentBounds()
-        adjustUIForNewCrop(contentRect: contentRect, animation: false, zoom: false) {}
+        adjustUIForNewCrop(contentRect: contentRect, animation: false, zoom: true) {}
         
         
 //        setViewDefaultProperties()
