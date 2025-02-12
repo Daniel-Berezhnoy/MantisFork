@@ -902,10 +902,10 @@ extension CropView: CropViewProtocol {
             setForceFixedRatio(by: presetFixedRatioType)
             
             if forceFixedRatio {
-//                setFixedRatioCropBox(zoom: zoom)
+                setFixedRatioCropBox(zoom: zoom)
             } else {
                 UIView.animate(withDuration: 0.5) {
-                    self.setFixedRatioCropBox(zoom: zoom)
+//                    self.setFixedRatioCropBox(zoom: zoom)
                 }
             }
         }
