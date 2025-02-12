@@ -338,6 +338,7 @@ final class CropView: UIView {
         return confinedPoint
     }
     
+    #warning("Interesting")
     func updateCropBoxFrame(withTouchPoint touchPoint: CGPoint) {
         let imageContainerRect = imageContainer.convert(imageContainer.bounds, to: self)
         let imageFrame = CGRect(x: cropWorkbenchView.frame.origin.x - cropWorkbenchView.contentOffset.x,
@@ -893,7 +894,7 @@ extension CropView: CropViewProtocol {
     #warning("Here")
     func setFixedRatio(_ ratio: Double, zoom: Bool = true, presetFixedRatioType: PresetFixedRatioType) {
         
-        // MARK: THIS IS IT
+        // MARK: This unlocks it
         aspectRatioLockEnabled = true
         
         if viewModel.fixedImageRatio != CGFloat(ratio) {
