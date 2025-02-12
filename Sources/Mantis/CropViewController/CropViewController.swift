@@ -163,10 +163,10 @@ open class CropViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-#if targetEnvironment(macCatalyst)
+        #if targetEnvironment(macCatalyst)
         modalPresentationStyle = .fullScreen
         navigationController?.modalPresentationStyle = .fullScreen
-#endif
+        #endif
         view.backgroundColor = .black
         
         cropView.initialSetup(delegate: self, presetFixedRatioType: config.presetFixedRatioType)
@@ -199,9 +199,10 @@ open class CropViewController: UIViewController {
             cropView.processPresetTransformation { [weak self] transformation in
                 guard let self = self else { return }
                 
+                // MARK: Doesn't seem to change much
                 if case .alwaysUsingOnePresetFixedRatio(let ratio) = self.config.presetFixedRatioType {
-//                    self.cropToolbar.handleFixedRatioSetted(ratio: ratio)
-//                    self.cropView.handlePresetFixedRatio(ratio, transformation: transformation)
+                    self.cropToolbar.handleFixedRatioSetted(ratio: ratio)
+                    self.cropView.handlePresetFixedRatio(ratio, transformation: transformation)
                 }
             }
         }

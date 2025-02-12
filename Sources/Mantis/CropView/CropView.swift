@@ -826,9 +826,11 @@ extension CropView: CropViewProtocol {
     private func setForceFixedRatio(by presetFixedRatioType: PresetFixedRatioType) {
         
         switch presetFixedRatioType {
+                
+                // MARK: Doesn't seem to change much
             case .alwaysUsingOnePresetFixedRatio:
-//                forceFixedRatio = true
-                break // MARK: Doesn't seem to change much
+                forceFixedRatio = true
+                break
                 
             case .canUseMultiplePresetFixedRatio(let defaultRatio):
                 forceFixedRatio = defaultRatio > 0
