@@ -404,9 +404,10 @@ final class CropView: UIView {
 // MARK: - Adjust UI
 extension CropView {
     func resetComponents() {
-        cropMaskViewManager.setup(in: self, cropRatio: CGFloat(getImageHorizontalToVerticalRatio()))
+//        cropMaskViewManager.setup(in: self, cropRatio: CGFloat(getImageHorizontalToVerticalRatio()))
+        cropMaskViewManager.setup(in: self, cropRatio: 16/7)
         
-//        viewModel.resetCropFrame(by: getInitialCropBoxRect())
+        viewModel.resetCropFrame(by: getInitialCropBoxRect())
         cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
         cropAuxiliaryIndicatorView.bringSelfToFront()
         
