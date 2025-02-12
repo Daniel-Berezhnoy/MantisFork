@@ -107,6 +107,17 @@ private func buildCropView(withImage image: UIImage,
                             cropWorkbenchView: buildCropWorkbenchView(with: cropViewConfig, and: imageContainer),
                             cropMaskViewManager: buildCropMaskViewManager(with: cropViewConfig))
     
+    
+    
+    
+    cropView.setFixedRatio(
+        16 / 7,
+        zoom: true,
+        presetFixedRatioType: .alwaysUsingOnePresetFixedRatio(ratio: 16/7)
+    )
+    
+    
+    
     setupRotationControlViewIfNeeded(withConfig: cropViewConfig, cropView: cropView, rotationControlView: rotationControlView)
     return cropView
 }
