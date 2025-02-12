@@ -24,6 +24,8 @@
 
 import UIKit
 
+
+
 // MARK: - Localization
 public final class LocalizationConfig {
     public var bundle: Bundle? = Mantis.Config.bundle
