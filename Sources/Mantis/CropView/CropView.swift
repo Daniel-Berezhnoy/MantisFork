@@ -406,7 +406,7 @@ extension CropView {
     func resetComponents() {
         cropMaskViewManager.setup(in: self, cropRatio: CGFloat(getImageHorizontalToVerticalRatio()))
         
-        viewModel.resetCropFrame(by: getInitialCropBoxRect())
+//        viewModel.resetCropFrame(by: getInitialCropBoxRect())
         cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
         cropAuxiliaryIndicatorView.bringSelfToFront()
         
