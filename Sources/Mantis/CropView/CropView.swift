@@ -905,7 +905,7 @@ extension CropView: CropViewProtocol {
                 setFixedRatioCropBox(zoom: zoom)
             } else {
                 UIView.animate(withDuration: 0.5) {
-//                    self.setFixedRatioCropBox(zoom: zoom)
+                    self.setFixedRatioCropBox(zoom: zoom)
                 }
             }
         }
