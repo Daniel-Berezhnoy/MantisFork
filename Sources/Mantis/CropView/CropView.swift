@@ -873,12 +873,12 @@ extension CropView: CropViewProtocol {
         // 4) Assign it directly to the viewModel, which drives the crop box
         viewModel.cropBoxFrame = default16x7Frame
         
-        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
-        cropWorkbenchView.zoomScaleToBound(animated: false)
+//        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
+//        cropWorkbenchView.zoomScaleToBound(animated: false)
         
         
-//        setViewDefaultProperties()
-//        setForceFixedRatio(by: presetFixedRatioType)
+        setViewDefaultProperties()
+        setForceFixedRatio(by: presetFixedRatioType)
     }
     
     func getRatioType(byImageIsOriginalHorizontal isHorizontal: Bool) -> RatioType {
