@@ -125,10 +125,10 @@ open class CropViewController: UIViewController {
                 if defaultRatio > 0 {
                     setFixedRatio(defaultRatio)
 //                    cropView.aspectRatioLockEnabled = true
-//                    config.cropToolbarConfig.presetRatiosButtonSelected = true
+                    config.cropToolbarConfig.presetRatiosButtonSelected = true
                 }
                 
-//                config.cropToolbarConfig.includeFixedRatiosSettingButton = true
+                config.cropToolbarConfig.includeFixedRatiosSettingButton = true
         }
         
         cropToolbar.createToolbarUI(config: config.cropToolbarConfig)                
