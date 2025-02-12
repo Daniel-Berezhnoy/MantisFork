@@ -122,7 +122,7 @@ open class CropViewController: UIViewController {
                 config.cropToolbarConfig.includeFixedRatiosSettingButton = false
                 
                 if case .none = config.cropViewConfig.presetTransformationType {
-                    setFixedRatio(ratio)
+//                    setFixedRatio(ratio)
                 }
                 
             case .canUseMultiplePresetFixedRatio(let defaultRatio):
