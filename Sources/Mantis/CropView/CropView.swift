@@ -860,8 +860,8 @@ extension CropView: CropViewProtocol {
         
         
         
-        setViewDefaultProperties()
-        setForceFixedRatio(by: presetFixedRatioType)
+//        setViewDefaultProperties()
+//        setForceFixedRatio(by: presetFixedRatioType)
     }
     
     func getRatioType(byImageIsOriginalHorizontal isHorizontal: Bool) -> RatioType {
