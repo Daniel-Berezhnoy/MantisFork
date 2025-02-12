@@ -892,7 +892,7 @@ extension CropView: CropViewProtocol {
     }
     
     #warning("Here")
-    func setFixedRatio(_ ratio: Double, zoom: Bool = true, presetFixedRatioType: PresetFixedRatioType) {
+    public func setFixedRatio(_ ratio: Double, zoom: Bool = true, presetFixedRatioType: PresetFixedRatioType) {
         
         // MARK: This unlocks it
 //        aspectRatioLockEnabled = true
