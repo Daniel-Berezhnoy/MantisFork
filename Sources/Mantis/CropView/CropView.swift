@@ -439,36 +439,36 @@ extension CropView {
     
     
 #warning("THIS IS THE KEY!")
-//    private func getInitialCropBoxRect() -> CGRect {
-//        guard image.size.width > 0 && image.size.height > 0 else {
-//            return .zero
-//        }
-//        
-//        let outsideRect = getContentBounds()
-//        let insideRect: CGRect
-//        
-//        if viewModel.isUpOrUpsideDown() {
-//            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-//        } else {
-//            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
-//        }
-//        
-//        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
-//    }
-    
     private func getInitialCropBoxRect() -> CGRect {
-        // Grab the bounding area
-        let boundingRect = getContentBounds()
+        guard image.size.width > 0 && image.size.height > 0 else {
+            return .zero
+        }
         
-        // 80% of the width for demonstration
-        let boundingWidth = boundingRect.width * 0.8
-        let boundingHeight = boundingWidth / (16.0 / 7.0)
+        let outsideRect = getContentBounds()
+        let insideRect: CGRect
         
-        let x = boundingRect.midX - boundingWidth / 2
-        let y = boundingRect.midY - boundingHeight / 2
+        if viewModel.isUpOrUpsideDown() {
+            insideRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        } else {
+            insideRect = CGRect(x: 0, y: 0, width: image.size.height, height: image.size.width)
+        }
         
-        return CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+        return GeometryHelper.getInscribeRect(fromOutsideRect: outsideRect, andInsideRect: insideRect)
     }
+    
+//    private func getInitialCropBoxRect() -> CGRect {
+//        // Grab the bounding area
+//        let boundingRect = getContentBounds()
+//        
+//        // 80% of the width for demonstration
+//        let boundingWidth = boundingRect.width * 0.8
+//        let boundingHeight = boundingWidth / (16.0 / 7.0)
+//        
+//        let x = boundingRect.midX - boundingWidth / 2
+//        let y = boundingRect.midY - boundingHeight / 2
+//        
+//        return CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+//    }
     
     
     
@@ -857,31 +857,31 @@ extension CropView: CropViewProtocol {
     }
     
     #warning("Second Key")
-//    func initialSetup(delegate: CropViewDelegate, presetFixedRatioType: PresetFixedRatioType) {
-//        self.delegate = delegate
-//        setViewDefaultProperties()
-//        setForceFixedRatio(by: presetFixedRatioType)
-//    }
-    
     func initialSetup(delegate: CropViewDelegate, presetFixedRatioType: PresetFixedRatioType) {
         self.delegate = delegate
-
-        // 1) We want freeform, so turn off aspect ratio locking
-        aspectRatioLockEnabled = false
-
-        // 2) Figure out how big we want the 16:7 box
-        let boundingRect = getContentBounds()
-        let boundingWidth = boundingRect.width * 0.8  // e.g. 80% of the available width
-        let boundingHeight = boundingWidth / (16.0 / 7.0)
-
-        // 3) Center that box in the available space
-        let x = boundingRect.midX - boundingWidth / 2
-        let y = boundingRect.midY - boundingHeight / 2
-        let default16x7Frame = CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
-
-        // 4) Assign it directly to the viewModel, which drives the crop box
-        viewModel.cropBoxFrame = default16x7Frame
+        setViewDefaultProperties()
+        setForceFixedRatio(by: presetFixedRatioType)
     }
+    
+//    func initialSetup(delegate: CropViewDelegate, presetFixedRatioType: PresetFixedRatioType) {
+//        self.delegate = delegate
+//
+//        // 1) We want freeform, so turn off aspect ratio locking
+//        aspectRatioLockEnabled = false
+//
+//        // 2) Figure out how big we want the 16:7 box
+//        let boundingRect = getContentBounds()
+//        let boundingWidth = boundingRect.width * 0.8  // e.g. 80% of the available width
+//        let boundingHeight = boundingWidth / (16.0 / 7.0)
+//
+//        // 3) Center that box in the available space
+//        let x = boundingRect.midX - boundingWidth / 2
+//        let y = boundingRect.midY - boundingHeight / 2
+//        let default16x7Frame = CGRect(x: x, y: y, width: boundingWidth, height: boundingHeight)
+//
+//        // 4) Assign it directly to the viewModel, which drives the crop box
+//        viewModel.cropBoxFrame = default16x7Frame
+//    }
     
     func getRatioType(byImageIsOriginalHorizontal isHorizontal: Bool) -> RatioType {
         return viewModel.getRatioType(byImageIsOriginalHorizontal: isHorizontal)
