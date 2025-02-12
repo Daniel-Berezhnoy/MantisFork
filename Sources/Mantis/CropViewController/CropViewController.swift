@@ -200,8 +200,8 @@ open class CropViewController: UIViewController {
                 guard let self = self else { return }
                 
                 if case .alwaysUsingOnePresetFixedRatio(let ratio) = self.config.presetFixedRatioType {
-                    self.cropToolbar.handleFixedRatioSetted(ratio: ratio)
-                    self.cropView.handlePresetFixedRatio(ratio, transformation: transformation)
+//                    self.cropToolbar.handleFixedRatioSetted(ratio: ratio)
+//                    self.cropView.handlePresetFixedRatio(ratio, transformation: transformation)
                 }
             }
         }
