@@ -436,7 +436,7 @@ extension CropView {
         adjustWorkbenchView(by: totalRadians)
     }
     
-#warning("THIS IS THE kEY!")
+#warning("THIS IS THE KEY!")
 //    private func getInitialCropBoxRect() -> CGRect {
 //        guard image.size.width > 0 && image.size.height > 0 else {
 //            return .zero
@@ -538,7 +538,7 @@ extension CropView {
     
     func adjustUIForNewCrop(contentRect: CGRect,
                             animation: Bool = true,
-                            zoom: Bool = true,
+                            zoom: Bool = false,
                             completion: @escaping () -> Void) {
         
         guard viewModel.cropBoxFrame.size.width > 0 && viewModel.cropBoxFrame.size.height > 0 else {
@@ -877,10 +877,9 @@ extension CropView: CropViewProtocol {
 //        cropWorkbenchView.resetImageContent(by: viewModel.cropBoxFrame)
 //        cropWorkbenchView.zoomScaleToBound(animated: false)
         
+        // Didn't help bring the image back
         let contentRect = getContentBounds()
-        adjustUIForNewCrop(contentRect: contentRect, animation: false, zoom: true) {
-            // Completion block if needed
-        }
+        adjustUIForNewCrop(contentRect: contentRect, animation: false, zoom: false) {}
         
         
 //        setViewDefaultProperties()
