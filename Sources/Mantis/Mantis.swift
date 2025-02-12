@@ -112,7 +112,7 @@ private func buildCropView(withImage image: UIImage,
     
     cropView.setFixedRatio(
         16 / 7,
-        zoom: true,
+//        zoom: true,
         presetFixedRatioType: .alwaysUsingOnePresetFixedRatio(ratio: 16/7)
     )
     
