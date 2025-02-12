@@ -86,13 +86,14 @@ open class CropViewController: UIViewController {
     required public init(config: Mantis.Config = Mantis.Config()) {
         self.config = config
         
-//        switch config.cropViewConfig.cropShapeType {
-//            case .circle, .square, .heart:
-//                
-//                self.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 1)
-//            default:
-//                break
-//        }
+        // MARK: Makes 0 difference
+        switch config.cropViewConfig.cropShapeType {
+            case .circle, .square, .heart:
+                self.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 1)
+                
+            default:
+                break
+        }
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -115,14 +116,16 @@ open class CropViewController: UIViewController {
         cropToolbar.delegate = self
         
         switch config.presetFixedRatioType {
-        case .alwaysUsingOnePresetFixedRatio(let ratio):
-                config.cropToolbarConfig.includeFixedRatiosSettingButton = false
-                                
-            if case .none = config.cropViewConfig.presetTransformationType {
-                    setFixedRatio(ratio)
-                }
                 
-        case .canUseMultiplePresetFixedRatio(let defaultRatio):
+            case .alwaysUsingOnePresetFixedRatio(let ratio):
+//                config.cropToolbarConfig.includeFixedRatiosSettingButton = false
+//                
+//                if case .none = config.cropViewConfig.presetTransformationType {
+//                    setFixedRatio(ratio)
+//                }
+                break
+                
+            case .canUseMultiplePresetFixedRatio(let defaultRatio):
                 if defaultRatio > 0 {
                     setFixedRatio(defaultRatio)
                     cropView.aspectRatioLockEnabled = true
@@ -132,7 +135,7 @@ open class CropViewController: UIViewController {
                 config.cropToolbarConfig.includeFixedRatiosSettingButton = true
         }
         
-        cropToolbar.createToolbarUI(config: config.cropToolbarConfig)                
+        cropToolbar.createToolbarUI(config: config.cropToolbarConfig)
     }
     
     private func getRatioType() -> RatioType {
