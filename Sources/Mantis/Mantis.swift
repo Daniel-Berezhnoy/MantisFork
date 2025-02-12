@@ -30,9 +30,9 @@ public func cropViewController(image: UIImage,
                                cropToolbar: CropToolbarProtocol = CropToolbar(frame: .zero),
                                rotationControlView: RotationControlViewProtocol? = nil) -> Mantis.CropViewController {
     let cropViewController = CropViewController(config: config)
-    cropViewController.cropView = buildCropView(withImage: image,
-                                                config: config.cropViewConfig,
-                                                rotationControlView: rotationControlView)
+//    cropViewController.cropView = buildCropView(withImage: image,
+//                                                config: config.cropViewConfig,
+//                                                rotationControlView: rotationControlView)
     cropViewController.cropToolbar = cropToolbar
     return cropViewController
 }
@@ -93,6 +93,7 @@ private(set) var bundle: Bundle? = {
     return Mantis.Config.bundle
 }()
 
+#warning("buildCropView")
 private func buildCropView(withImage image: UIImage,
                            config cropViewConfig: CropViewConfig,
                            rotationControlView: RotationControlViewProtocol?) -> CropViewProtocol {
